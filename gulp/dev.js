@@ -111,6 +111,9 @@ gulp.task("files:dev", function () {
     .src("./src/files/**/*")
     .pipe(changed("./build/files/"))
     .pipe(gulp.dest("./build/assets/files/"))
+    .pipe(browserSync.reload({
+      stream: true,
+    }));
 });
 
 

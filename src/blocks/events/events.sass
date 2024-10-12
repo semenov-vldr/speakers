@@ -100,15 +100,24 @@
 
   // --- Карточки ---
   &__cards
-    display: flex
-    flex-wrap: wrap
-    flex-direction: row
+    //display: flex
+    //flex-wrap: wrap
+    //flex-direction: row
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
     margin-top: 32px
+    gap: 24px
     @include tablet
+      grid-template-columns: repeat(2, 1fr)
       gap: 24px
     @include mobile
-      flex-direction: column
+      //flex-direction: column
       gap: 16px
+      grid-template-columns: 1fr
+
+  &__message
+    color: #fff
+    font-size: 18px
 
   &-card
     position: relative
@@ -117,12 +126,14 @@
     color: $bg-color
     padding: 16px
     user-select: none
-    height: fit-content
-    @media (min-width: $width-tablet)
-      width: calc(33.3% - 1.5rem)
-      margin-top: 48px
-      margin-right: 1.5rem
-      margin-bottom: 1.5rem
+    //height: fit-content
+    //@media (min-width: $width-tablet)
+    //  width: calc(33.3% - 1.5rem)
+    //  margin-top: 48px
+    //  margin-right: 1.5rem
+    //  margin-bottom: 1.5rem
+    &.js-hidden
+      display: none
 
     &__header
       display: flex

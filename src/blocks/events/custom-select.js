@@ -6,19 +6,19 @@ if (customSelectList) {
 
   customSelectList.forEach(customSelect => {
 
+    // hide on click outside select
+    document.addEventListener("click", (evt) => {
+      if (!customSelect.contains(evt.target)) {
+        customSelect.classList.remove("active");
+      }
+    });
+
     const selectBtn = customSelect.querySelector(".select-button");
     const optionsList = customSelect.querySelectorAll(".select-dropdown li");
 
 
-    // add click event to select button
     selectBtn.addEventListener("click", () => {
-      // add/remove active class on the container element
       customSelect.classList.toggle("active");
-      // update the aria-expanded attribute based on the current state
-      selectBtn.setAttribute(
-        "aria-expanded",
-        selectBtn.getAttribute("aria-expanded") === "true" ? "false" : "true"
-      );
     });
 
     optionsList.forEach((option) => {

@@ -5,7 +5,7 @@ const itemIdentifier = '#masonry-effect .events-card';
 const mobileWidthMediaQuery = window.matchMedia('(min-width: 767px)');
 
 if (mobileWidthMediaQuery.matches) {
-  document.addEventListener('DOMContentLoaded', masonry_effect);
+  //document.addEventListener('DOMContentLoaded', masonry_effect);
 }
 
 
