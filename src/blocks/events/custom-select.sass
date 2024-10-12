@@ -1,0 +1,82 @@
+// --- custom-select ---
+.custom-select
+  position: relative
+  width: fit-content
+  font-size: 16px
+  color: #fff
+  margin: 0 auto
+  @include mobile
+    width: 100%
+
+
+  &.active
+    background-color: #fff
+    color: $bg-color
+    border-radius: 24px 24px 0 0
+    box-shadow: rgba(#000, 0.3) 0 0 7px 0
+    .select-dropdown
+      opacity: 1
+      visibility: visible
+      z-index: 2
+    .select-button
+      border-bottom-color: transparent
+    .select-button svg
+      stroke: $bg-color
+      transform: rotate(180deg)
+  .select-button
+    padding: 8px 64px
+    cursor: pointer
+    display: flex
+    align-items: center
+    min-height: 42px
+    border-radius: 32px
+    text-align: center
+    justify-content: center
+    border: 1px solid #fff
+    gap: 14px
+    @include mobile
+      width: 100%
+
+  .select-dropdown
+    position: absolute
+    width: 100%
+    background-color: #fff
+    border-top-color: transparent
+    overflow-y: auto
+    padding: 8px 0
+    display: flex
+    flex-direction: column
+    gap: 16px
+    opacity: 0
+    visibility: hidden
+    border-radius: 0 0 32px 32px
+    li
+      position: relative
+      cursor: pointer
+      display: flex
+      gap: 16px
+      align-items: center
+      label
+        width: 100%
+        padding: 4px 12px
+        cursor: pointer
+        text-align: center
+    &::-webkit-scrollbar
+      width: 7px
+    &::-webkit-scrollbar-track
+      background: #f1f1f1
+      border-radius: 25px
+    &::-webkit-scrollbar-thumb
+      background: #ccc
+      border-radius: 25px
+    input
+      &:focus
+        & ~ label
+          background-color: #dfdfdf
+    input[type="radio"]
+      position: absolute
+      left: 0
+      opacity: 0
+  .select-dropdown li:hover,
+  .select-dropdown input:checked ~ label
+    font-weight: 600

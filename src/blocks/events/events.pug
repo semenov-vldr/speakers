@@ -1,0 +1,162 @@
+-
+  const srcAvatar = "https://avatars.mds.yandex.net/get-yapic/20749/enc-c91d98c5838874e27f97d9439b0add5cbdb17dd5f3e7b322261898b5d9b50af4/islands-retina-middle"
+
+.events
+    .events__container.container
+        h1.events__title Хедлайнеры и спикеры 2024
+
+        .events__settings
+            .events__settings-filter.events-filter
+                label.events-filter-button Все фильтры
+                    input(type="checkbox")
+                    include ../../img/arrow.svg
+
+            .events__settings-dates.events-dates
+                fieldset.events-dates__list-desktop
+                    label.events-dates__item 13 ноября
+                        input(type="radio" name="date" value="13 ноября")
+                    label.events-dates__item 14 ноября
+                        input(type="radio" name="date" value="14 ноября" checked)
+                    label.events-dates__item все даты
+                        input(type="radio" name="date" value="все даты")
+                .events-dates__list-mobile
+                    //custom-select
+                    .custom-select
+                        button.select-button(type="button")
+                            span все даты
+                            include ../../img/arrow.svg
+                        ul.select-dropdown
+                            +select-item("14 ноября", "date")
+                            +select-item("13 ноября", "date")
+                            +select-item("все даты", "date")
+
+
+            .events-filter__list
+                .custom-select
+                    button.select-button(type="button")
+                        span Страна
+                        include ../../img/arrow.svg
+                    ul.select-dropdown
+                        +select-item("Страна", "country")
+                        +select-item("ЮАР", "country")
+                        +select-item("Сербия", "country")
+                        +select-item("Болгария", "country")
+
+                .custom-select
+                    button.select-button(type="button")
+                        span Трек программы
+                        include ../../img/arrow.svg
+                    ul.select-dropdown
+                        +select-item("Трек программы", "program")
+                        +select-item("New Money. Экономика новых медиа", "program")
+                        +select-item("Пластмассовый мир победил. ИИ как соавтор", "program")
+                        +select-item("Уходящий поезд: кино и новые медиа", "program")
+                        +select-item("Press Start: виртуальные пространства, видеоигры и киберспорт", "program")
+
+                .custom-select
+                    button.select-button(type="button")
+                        span Зал
+                        include ../../img/arrow.svg
+                    ul.select-dropdown
+                        +select-item("Зал", "hall")
+                        +select-item("Зал 1", "hall")
+                        +select-item("Зал 2", "hall")
+                        +select-item("Зал 3", "hall")
+
+
+        //--- Карточки ---
+        .events__cards#masonry-effect
+
+            article.events__card.events-card
+                .events-card__header
+                    .events-card__author
+                        span.events-card__author-name Вильям-Маурисио-Бастос-Карилло
+                        span.events-card__author-country ЮАР
+                    img.events-card__img(src=srcAvatar)
+                .events-card__desc
+                    p Главный координатор по устойчивым городам, заместитель директора по городской среде Национального секретариата по городской среде и качеству окружающей среды.
+
+
+            article.events__card.events-card
+                .events-card__header
+                    .events-card__author
+                        span.events-card__author-name Марат нигаметзянов
+                        span.events-card__author-country Сербия
+                    img.events-card__img(src=srcAvatar)
+                .events-card__desc
+                    p Югославский и сербский кинорежиссёр и актёр кино, отмеченный наградами крупнейших кинофестивалей Европы, включая две «Золотые пальмовые ветви» Каннского кинофестиваля.
+
+
+            article.events__card.events-card
+                .events-card__header
+                    .events-card__author
+                        span.events-card__author-name Марат нигаметзянов
+                        span.events-card__author-country Сербия
+                    img.events-card__img(src=srcAvatar)
+                .events-card__desc
+                    p Югославский и сербский кинорежиссёр и актёр кино, отмеченный наградами крупнейших кинофестивалей Европы, включая две «Золотые пальмовые ветви» Каннского кинофестиваля.
+
+
+            article.events__card.events-card
+                .events-card__header
+                    .events-card__author
+                        span.events-card__author-name Марат нигаметзянов
+                        span.events-card__author-country Сербия
+                    img.events-card__img(src=srcAvatar)
+                .events-card__desc
+                    p Югославский и сербский кинорежиссёр и актёр кино, отмеченный наградами крупнейших кинофестивалей Европы, включая две «Золотые пальмовые ветви» Каннского кинофестиваля.
+
+
+            article.events__card.events-card
+                .events-card__header
+                    .events-card__author
+                        span.events-card__author-name Марат нигаметзянов
+                        span.events-card__author-country Сербия
+                    img.events-card__img(src=srcAvatar)
+                .events-card__desc
+                    p Югославский и сербский кинорежиссёр и актёр кино, отмеченный наградами крупнейших кинофестивалей Европы, включая две «Золотые пальмовые ветви» Каннского кинофестиваля. Национального секретариата по городской среде и качеству окружающей среды.
+
+
+            article.events__card.events-card
+                .events-card__header
+                    .events-card__author
+                        span.events-card__author-name Марат нигаметзянов
+                        span.events-card__author-country Сербия
+                    img.events-card__img(src=srcAvatar)
+                .events-card__desc
+                    p Югославский и сербский кинорежиссёр и актёр кино, отмеченный наградами крупнейших кинофестивалей Европы, включая две «Золотые пальмовые ветви» Каннского кинофестиваля.
+
+
+
+            article.events__card.events-card
+                .events-card__header
+                    .events-card__author
+                        span.events-card__author-name Марат нигаметзянов
+                        span.events-card__author-country Сербия
+                    img.events-card__img(src=srcAvatar)
+                .events-card__desc
+                    p Югославский и сербский кинорежиссёр и актёр кино, отмеченный наградами крупнейших кинофестивалей Европы, включая две «Золотые пальмовые ветви» Каннского кинофестиваля.
+
+
+            article.events__card.events-card
+                .events-card__header
+                    .events-card__author
+                        span.events-card__author-name Марат нигаметзянов
+                        span.events-card__author-country Сербия
+                    img.events-card__img(src=srcAvatar)
+                .events-card__desc
+                    p Югославский и сербский кинорежиссёр и актёр кино, отмеченный наградами крупнейших кинофестивалей Европы, включая две «Золотые пальмовые ветви» Каннского кинофестиваля. Национального секретариата по городской среде и качеству окружающей среды.
+
+
+            article.events__card.events-card
+                .events-card__header
+                    .events-card__author
+                        span.events-card__author-name Марат нигаметзянов
+                        span.events-card__author-country Сербия
+                    img.events-card__img(src=srcAvatar)
+                .events-card__desc
+                    p Югославский и сербский кинорежиссёр и актёр кино, отмеченный наградами крупнейших кинофестивалей Европы, включая две «Золотые пальмовые ветви» Каннского кинофестиваля.
+
+
+
+

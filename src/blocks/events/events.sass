@@ -1,0 +1,156 @@
+.events
+  padding-top: 32px
+
+  &__container
+    display: flex
+    flex-direction: column
+    align-items: center
+
+  &__title
+    font-size: 32px
+    text-transform: uppercase
+    color: $bg-color
+    background: $accent
+    width: fit-content
+    border-radius: 52px
+    padding: 18px 48px
+    margin-bottom: 32px
+    text-align: center
+    text-wrap: balance
+    @include mobile
+      font-size: 28px
+      padding: 8px 32px
+
+
+  &__settings
+    display: flex
+    flex-wrap: wrap
+    gap: 24px
+    justify-content: center
+    @include mobile
+      width: 100%
+      flex-direction: column
+      gap: 10px
+
+    &:has(.events-filter-button input:checked) .events-filter__list
+      display: flex
+
+
+  &-filter
+    @include mobile
+      width: 100%
+    &-button
+      padding: 8px 64px
+      cursor: pointer
+      display: flex
+      align-items: center
+      min-height: 42px
+      border-radius: 32px
+      text-align: center
+      justify-content: center
+      border: 1px solid #fff
+      gap: 14px
+      color: #fff
+
+      input[type="checkbox"]
+        display: none
+      &:has(input:checked) svg
+        transform: rotate(180deg)
+
+    &__list
+      display: none
+      gap: 24px
+      flex-wrap: wrap
+      @include mobile
+        gap: 10px
+
+
+  // Даты
+  &-dates
+    @include mobile
+      width: 100%
+      order: -1
+
+    &__list-desktop
+      border: 1px solid #fff
+      border-radius: 24px
+      display: flex
+      @include mobile
+        display: none
+      .events-dates__item
+        color: #fff
+        font-size: 18px
+        border-radius: 24px
+        min-height: 42px
+        padding: 8px 64px
+        white-space: nowrap
+        &:has(input:checked)
+          color: $bg-color
+          background: $accent
+
+    &__list-mobile
+      display: none
+      @include mobile
+        display: block
+        margin: 0 auto
+
+    input[type="radio"]
+      display: none
+
+
+  // --- Карточки ---
+  &__cards
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+    margin-top: 32px
+    @include tablet
+      gap: 24px
+    @include mobile
+      flex-direction: column
+      gap: 16px
+
+  &-card
+    position: relative
+    background-color: #fff
+    border-radius: 20px
+    color: $bg-color
+    padding: 16px
+    user-select: none
+    height: fit-content
+    @media (min-width: $width-tablet)
+      width: calc(33.3% - 1.5rem)
+      margin-top: 48px
+      margin-right: 1.5rem
+      margin-bottom: 1.5rem
+
+    &__header
+      display: flex
+      justify-content: space-between
+      margin-bottom: 10px
+      gap: 32px
+    &__author
+      display: flex
+      flex-direction: column
+      gap: 8px
+    &__author-name
+      font-size: 20px
+      text-transform: uppercase
+      text-wrap: balance
+    &__author-country
+      display: block
+      font-size: 12px
+      font-style: italic
+      font-weight: 600
+
+    &__img
+      width: 70px
+      height: 70px
+      border-radius: 16px
+      aspect-ratio: 1 / 1
+      object-fit: cover
+      flex: 0 0 70px
+
+    &__desc
+      font-size: 14px
+      text-wrap: balance
