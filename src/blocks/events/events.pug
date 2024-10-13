@@ -11,11 +11,11 @@
             .events__settings-dates.events-dates#date
                 fieldset.events-dates__list-desktop
                     label.events-dates__item 13 ноября
-                        input(type="radio" name="date" value="2024-11-13")
+                        input(type="radio" name="dateDesk" value="2024-11-13")
                     label.events-dates__item 14 ноября
-                        input(type="radio" name="date" value="2024-11-14" checked)
+                        input(type="radio" name="dateDesk" value="2024-11-14")
                     label.events-dates__item все даты
-                        input(type="radio" name="date" value="все даты")
+                        input(type="radio" name="dateDesk" value="все даты" checked)
                 .events-dates__list-mobile
                     //custom-select
                     .custom-select
@@ -23,9 +23,12 @@
                             span все даты
                             include ../../img/arrow.svg
                         ul.select-dropdown
-                            +select-item("14 ноября", "date")
-                            +select-item("13 ноября", "date")
-                            +select-item("все даты", "date")
+                            +select-item("2024-11-13", "dateMob")
+                            +select-item("2024-11-14", "dateMob")
+                            li
+                                label
+                                    span все даты
+                                    input(type='radio', name="dateMob" value="все даты" checked)
 
 
             .events-filter__list#filter

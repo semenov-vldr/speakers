@@ -4,6 +4,18 @@ async function handlerEvents() {
   const events = document.querySelector("#events");
   if (!events) return;
 
+
+  // check current Date
+  const today = new Date();
+  const formattedDate = today.toISOString().slice(0, 10);
+
+  const settingDates = events.querySelectorAll('#date .events-dates__item input[type="radio"]');
+  settingDates.forEach(settingDate => {
+    if (settingDate.value === formattedDate) settingDate.checked = true;
+    //if (settingDate.value === "все даты") settingDate.checked = true;
+  });
+
+
   // --- FETCH DATA.JSON ---
   const API_URL = "./assets/files/data_new.json";
 
@@ -16,6 +28,7 @@ async function handlerEvents() {
 
   const dataEvents = await getDataEvents();
   const blockCards = document.querySelector(".events__cards");
+
 
 // --------- Render Cards ---------
 
@@ -116,7 +129,7 @@ async function handlerEvents() {
 
     // Добавляем список залов из json в dropdown фильтра
     const filterHallsDropdown = filterSelectHall.querySelector(".select-dropdown");
-    hallList.forEach(hall => addItemsDropdown(hall, hall, filterHallsDropdown));
+    hallList.forEach(hall => addItemsDropdown(hall, 'hall', filterHallsDropdown));
   };
 
 
@@ -130,7 +143,10 @@ async function handlerEvents() {
     const selectedTrack = filterSelectTrack.querySelector(".select-button span").textContent;
     const selectedHall = filterSelectHall.querySelector(".select-button span").textContent;
 
-    const dateSettingsActive = events.querySelector("#date .events-dates__item input[type='radio']:checked");
+    const dateSettingsDesktopActive = events.querySelector("#date .events-dates__item input[type='radio']:checked");
+    const dateSettingsMobileActive = events.querySelector("#date .events-dates__list-mobile .select-dropdown input[type='radio']:checked");
+
+    console.log(dateSettingsDesktopActive)
 
 
 
@@ -149,12 +165,15 @@ async function handlerEvents() {
       const matchingHall = dataHallAttrs.some(dataHall => selectedHall === eventsCard.getAttribute(dataHall.name) || selectedHall === "Все залы")
 
 
-      // Даты
+      // Даты (desktop)
       const dataDateAttrs = Array.from(eventsCard.attributes).filter(attr => attr.name.startsWith('data-date'));
-      const matchingDate = dataDateAttrs.some(dataDate => dateSettingsActive.value === eventsCard.getAttribute(dataDate.name) || dateSettingsActive.value === "все даты")
+      const matchingDateDesktop = dataDateAttrs.some(dataDate => dateSettingsDesktopActive.value === eventsCard.getAttribute(dataDate.name) || dateSettingsDesktopActive.value === "все даты");
+
+      const matchingDateMobile = dataDateAttrs.some(dataDate => dateSettingsMobileActive.value === eventsCard.getAttribute(dataDate.name) || dateSettingsMobileActive.value === "все даты");
 
 
-      eventsCard.classList.toggle("js-hidden", !(matchingCountry && matchingTrack && matchingHall && matchingDate));
+        // Показ/Скрытие карточек по условию фильтра
+      eventsCard.classList.toggle("js-hidden", !(matchingCountry && matchingTrack && matchingHall && matchingDateDesktop && matchingDateMobile));
     });
 
 
