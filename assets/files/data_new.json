@@ -1,0 +1,1369 @@
+{
+  "data": [
+    {
+      "id": "15740898-25d0-42db-a9bc-d701ee9e3fcf",
+      "first_name_ru": "Наталья",
+      "last_name_ru": "Павлова",
+      "first_name_en": "Natalia",
+      "last_name_en": "Pavlova",
+      "about_ru": "Педагог с многолетним опытом, обучающая детей и подростков.",
+      "about_en": "An educator with years of experience teaching children and teenagers.",
+      "display_order": 1,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Объединённые Арабские Эмираты",
+        "name_en": "United Arab Emirates"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-14T17:00:00",
+            "finish": "2024-11-14T18:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "1725c626-1a8d-458d-9c79-3e6448924d00",
+      "first_name_ru": "София",
+      "last_name_ru": "Райт",
+      "first_name_en": "Sophia",
+      "last_name_en": "Wright",
+      "about_ru": "Кинокритик, пишущая статьи для популярных журналов и блогов о кино.",
+      "about_en": "Film critic writing articles for popular magazines and blogs about cinema.",
+      "display_order": 2,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Россия",
+        "name_en": "Russian Federation"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T11:00:00",
+            "finish": "2024-11-13T13:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T17:00:00",
+            "finish": "2024-11-14T18:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "40130279-0ed1-4c78-9485-095cb540a332",
+      "first_name_ru": "Оливия",
+      "last_name_ru": "Скотт",
+      "first_name_en": "Olivia",
+      "last_name_en": "Scott",
+      "about_ru": "Писательница, автор бестселлеров в жанре научной фантастики.",
+      "about_en": "Author of best-selling science fiction novels and a skilled writer.",
+      "display_order": 3,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Туркмения",
+        "name_en": "Turkmenistan"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T11:00:00",
+            "finish": "2024-11-13T13:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T16:00:00",
+            "finish": "2024-11-13T17:00:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "49ce3f9e-c8d9-459f-b0ae-9684f885bb5e",
+      "first_name_ru": "Уильям",
+      "last_name_ru": "Эванс",
+      "first_name_en": "William",
+      "last_name_en": "Evans",
+      "about_ru": "Тренер по фитнесу, мотивирующий клиентов достигать их целей в здоровье и спорте.",
+      "about_en": "Fitness coach motivating clients to achieve their health and sports goals.",
+      "display_order": 4,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Сент-Китс и Невис",
+        "name_en": "Saint Kitts and Nevis"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-14T13:00:00",
+            "finish": "2024-11-14T14:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T16:00:00",
+            "finish": "2024-11-13T17:00:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T20:00:00",
+            "finish": "2024-11-13T21:00:00",
+            "track": {
+              "title_en": "Press Start: virtual reality, video games and cybersport",
+              "title_ru": "Press Start: виртуальные пространства, видеоигры и киберспорт"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "5666b051-5d8e-4c60-bb4a-9a6e907285a4",
+      "first_name_ru": "Ольга",
+      "last_name_ru": "Васильева",
+      "first_name_en": "Olga",
+      "last_name_en": "Vasilyeva",
+      "about_ru": "Профессиональный художник, известная своими яркими картинами и выставками.",
+      "about_en": "A professional artist known for her vibrant paintings and exhibitions.",
+      "display_order": 5,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Сербия",
+        "name_en": "Serbia"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T16:00:00",
+            "finish": "2024-11-13T17:00:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T12:00:00",
+            "finish": "2024-11-14T13:00:00",
+            "track": {
+              "title_en": "Press Start: virtual reality, video games and cybersport",
+              "title_ru": "Press Start: виртуальные пространства, видеоигры и киберспорт"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "57f10405-9bf0-4ded-bac7-c4ce309f8bac",
+      "first_name_ru": "Грейс",
+      "last_name_ru": "Робинсон",
+      "first_name_en": "Grace",
+      "last_name_en": "Robinson",
+      "about_ru": "Ведущий дизайнер интерьеров, создающая уникальные и стильные пространства.",
+      "about_en": "Leading interior designer creating unique and stylish spaces.",
+      "display_order": 6,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Танзания",
+        "name_en": "Tanzania"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T15:00:00",
+            "finish": "2024-11-13T16:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T14:00:00",
+            "finish": "2024-11-13T15:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "792d9ce0-5f9a-42be-ae0d-f1eb86318713",
+      "first_name_ru": "Екатерина",
+      "last_name_ru": "Соколова",
+      "first_name_en": "Ekaterina",
+      "last_name_en": "Sokolova",
+      "about_ru": "Исследователь в области экологии, занимающаяся защитой окружающей среды.",
+      "about_en": "An environmental researcher focused on ecological protection.",
+      "display_order": 7,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Мальдивы",
+        "name_en": "Maldives"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T14:00:00",
+            "finish": "2024-11-13T15:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "7a9e729e-a05f-40b2-9c51-acdbb470b412",
+      "first_name_ru": "Майкл",
+      "last_name_ru": "Томпсон",
+      "first_name_en": "Michael",
+      "last_name_en": "Thompson",
+      "about_ru": "Ведущий научный сотрудник, работающий в области биомедицинских исследований.",
+      "about_en": "Lead researcher working in the field of biomedical studies.",
+      "display_order": 8,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Казахстан",
+        "name_en": "Kazakhstan"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T15:00:00",
+            "finish": "2024-11-13T16:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T14:00:00",
+            "finish": "2024-11-13T15:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T16:00:00",
+            "finish": "2024-11-13T17:00:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "832b90cd-4cb6-4c49-b600-2984bb16fd79",
+      "first_name_ru": "Джеймс",
+      "last_name_ru": "Картер",
+      "first_name_en": "James",
+      "last_name_en": "Carter",
+      "about_ru": "Экономист с международным опытом, анализирующий глобальные финансовые рынки.",
+      "about_en": "Economist with international experience analyzing global financial markets.",
+      "display_order": 9,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Беларусь",
+        "name_en": "Belarus"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T15:00:00",
+            "finish": "2024-11-13T17:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T16:00:00",
+            "finish": "2024-11-13T17:00:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T12:00:00",
+            "finish": "2024-11-14T13:00:00",
+            "track": {
+              "title_en": "Press Start: virtual reality, video games and cybersport",
+              "title_ru": "Press Start: виртуальные пространства, видеоигры и киберспорт"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "882f18fb-c5ad-4d60-8623-6f31f1ad0961",
+      "first_name_ru": "Марина",
+      "last_name_ru": "Кузнецова",
+      "first_name_en": "Marina",
+      "last_name_en": "Kuznetsova",
+      "about_ru": "Успешная бизнесвумен, основавшая несколько стартапов в области моды и дизайна.",
+      "about_en": "A successful businesswoman who founded several startups in fashion and design.",
+      "display_order": 10,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Камбоджа",
+        "name_en": "Cambodia"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T15:00:00",
+            "finish": "2024-11-13T17:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T17:00:00",
+            "finish": "2024-11-13T17:30:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "9876b800-fa52-48a4-9d8a-af186c1ba562",
+      "first_name_ru": "Виктор",
+      "last_name_ru": "Морозов",
+      "first_name_en": "Viktor",
+      "last_name_en": "Morozov",
+      "about_ru": "Предприниматель, ведущий бизнес в сфере технологий и инноваций.",
+      "about_en": "An entrepreneur leading a business in technology and innovation.",
+      "display_order": 11,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Австралия",
+        "name_en": "Australia"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T15:00:00",
+            "finish": "2024-11-13T17:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T11:00:00",
+            "finish": "2024-11-14T12:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T17:00:00",
+            "finish": "2024-11-13T17:30:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "99120d08-3185-4fc4-8f17-c686f6a92599",
+      "first_name_ru": "Ава",
+      "last_name_ru": "Беннетт",
+      "first_name_en": "Ava",
+      "last_name_en": "Bennett",
+      "about_ru": "Социальный работник, поддерживающий семьи в трудных жизненных ситуациях.",
+      "about_en": "Social worker supporting families in challenging life situations.",
+      "display_order": 12,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Руанда",
+        "name_en": "Rwanda"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T15:00:00",
+            "finish": "2024-11-13T16:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T17:00:00",
+            "finish": "2024-11-13T17:30:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "a3ba391e-9534-442c-9c6e-19e5f6ac87d1",
+      "first_name_ru": "Секретный",
+      "last_name_ru": "Спикер",
+      "first_name_en": "Secret",
+      "last_name_en": "Speaker",
+      "about_ru": "Спикер – известная фигура в сфере цифровых медиа, прославившаяся своими новаторскими достижениями в области творчества с использованием ИИ и блокчейн-инноваций.",
+      "about_en": "Speaker is a renowned figure in the digital media landscape, known for their groundbreaking contributions to AI-driven creativity and blockchain innovations.",
+      "display_order": 13,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Камбоджа",
+        "name_en": "Cambodia"
+      },
+      "sessions_speaker": []
+    },
+    {
+      "id": "c1974f41-8ea7-49e7-921a-11d2f643e538",
+      "first_name_ru": "Игорь",
+      "last_name_ru": "Петров",
+      "first_name_en": "Igor",
+      "last_name_en": "Petrov",
+      "about_ru": "Талантливый музыкант и композитор, работающий в различных жанрах.",
+      "about_en": "A talented musician and composer working across various genres.",
+      "display_order": 14,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Мадагаскар",
+        "name_en": "Madagascar"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T12:00:00",
+            "finish": "2024-11-13T13:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T09:00:00",
+            "finish": "2024-11-14T10:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T16:00:00",
+            "finish": "2024-11-13T17:00:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T12:00:00",
+            "finish": "2024-11-14T13:00:00",
+            "track": {
+              "title_en": "Press Start: virtual reality, video games and cybersport",
+              "title_ru": "Press Start: виртуальные пространства, видеоигры и киберспорт"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T20:00:00",
+            "finish": "2024-11-13T21:00:00",
+            "track": {
+              "title_en": "Press Start: virtual reality, video games and cybersport",
+              "title_ru": "Press Start: виртуальные пространства, видеоигры и киберспорт"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "c66d2c5a-aa1d-4174-b989-ff421aa56bef",
+      "first_name_ru": "Дмитрий",
+      "last_name_ru": "Иванов",
+      "first_name_en": "Dmitry",
+      "last_name_en": "Ivanov",
+      "about_ru": "Специалист в области маркетинга, помогающий брендам развивать их имидж.",
+      "about_en": "A marketing specialist helping brands develop their image.",
+      "display_order": 15,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Россия",
+        "name_en": "Russian Federation"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T12:00:00",
+            "finish": "2024-11-13T13:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T12:00:00",
+            "finish": "2024-11-13T13:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T15:00:00",
+            "finish": "2024-11-13T16:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T14:00:00",
+            "finish": "2024-11-13T15:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "c75c9d99-c87f-453e-87ef-0922c1c8a466",
+      "first_name_ru": "Джон",
+      "last_name_ru": "Андерсон",
+      "first_name_en": "John",
+      "last_name_en": "Anderson",
+      "about_ru": "Успешный юрист, специализирующийся на корпоративном праве и защите интеллектуальной собственности.",
+      "about_en": "A successful lawyer specializing in corporate law and intellectual property protection.",
+      "display_order": 16,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Южная Корея",
+        "name_en": "South Korea"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T12:00:00",
+            "finish": "2024-11-13T13:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T11:00:00",
+            "finish": "2024-11-14T12:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T14:00:00",
+            "finish": "2024-11-13T15:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T17:00:00",
+            "finish": "2024-11-13T17:30:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T20:00:00",
+            "finish": "2024-11-13T21:00:00",
+            "track": {
+              "title_en": "Press Start: virtual reality, video games and cybersport",
+              "title_ru": "Press Start: виртуальные пространства, видеоигры и киберспорт"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "cb77b449-ff76-472a-915d-1ca20b69b2ec",
+      "first_name_ru": "Эмма",
+      "last_name_ru": "Харрис",
+      "first_name_en": "Emma",
+      "last_name_en": "Harris",
+      "about_ru": "Творческий директор в рекламном агентстве, создающая оригинальные кампании для клиентов.",
+      "about_en": "Creative director at an advertising agency, crafting original campaigns for clients.",
+      "display_order": 17,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Монако",
+        "name_en": "Monaco"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T12:00:00",
+            "finish": "2024-11-13T13:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T11:00:00",
+            "finish": "2024-11-14T12:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T15:00:00",
+            "finish": "2024-11-13T16:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T09:00:00",
+            "finish": "2024-11-14T10:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T17:00:00",
+            "finish": "2024-11-13T17:30:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T20:00:00",
+            "finish": "2024-11-13T21:00:00",
+            "track": {
+              "title_en": "Press Start: virtual reality, video games and cybersport",
+              "title_ru": "Press Start: виртуальные пространства, видеоигры и киберспорт"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "d6b6ae2e-d337-4236-bd66-096a57fc2da6",
+      "first_name_ru": "Сергей",
+      "last_name_ru": "Михайлов",
+      "first_name_en": "Sergey",
+      "last_name_en": "Mikhailov",
+      "about_ru": "Инженер-программист, работающий над проектами в области искусственного интеллекта.",
+      "about_en": "A software engineer working on artificial intelligence projects.",
+      "display_order": 18,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Япония",
+        "name_en": "Japan"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T12:00:00",
+            "finish": "2024-11-13T13:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T12:00:00",
+            "finish": "2024-11-13T13:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T11:00:00",
+            "finish": "2024-11-14T12:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-13T17:00:00",
+            "finish": "2024-11-13T17:30:00",
+            "track": {
+              "title_en": "The Departing Train: Cinema and NEW MEDIA",
+              "title_ru": "Уходящий поезд: кино и новые медиа"
+            },
+            "hall": {
+              "title_en": "Small hall",
+              "title_ru": "Малый зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "e63f5100-e6d5-425f-9f3d-8d409da119d3",
+      "first_name_ru": "Анна",
+      "last_name_ru": "Попова",
+      "first_name_en": "Anna",
+      "last_name_en": "Popova",
+      "about_ru": "Опытный психолог, помогающая людям находить решения в трудных ситуациях.",
+      "about_en": "An experienced psychologist helping people find solutions in difficult situations.",
+      "display_order": 19,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Соединённые Штаты Америки",
+        "name_en": "United States of America"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-13T12:00:00",
+            "finish": "2024-11-13T13:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "13 Ноября",
+              "day_en": "13 November",
+              "date_typed": "2024-11-13"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T09:00:00",
+            "finish": "2024-11-14T10:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "f27a60cb-fbba-4176-9c06-639fc0dd8ee4",
+      "first_name_ru": "Алексей",
+      "last_name_ru": "Смирнов",
+      "first_name_en": "Alexey",
+      "last_name_en": "Smirnov",
+      "about_ru": "Известный эксперт в области информационных технологий, работающий с международными проектами.",
+      "about_en": "A renowned expert in information technology, working on international projects.",
+      "display_order": 20,
+      "photo": "22cf7300-5ab5-4b18-bdd8-a2097c6183e9",
+      "country": {
+        "name_ru": "Сирия",
+        "name_en": "Syria"
+      },
+      "sessions_speaker": [
+        {
+          "sessions_id": {
+            "start": "2024-11-14T11:00:00",
+            "finish": "2024-11-14T12:00:00",
+            "track": {
+              "title_en": "New Money. New Media Economy",
+              "title_ru": "New Money. Экономика новых медиа"
+            },
+            "hall": {
+              "title_en": "Main hall",
+              "title_ru": "Главный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        },
+        {
+          "sessions_id": {
+            "start": "2024-11-14T09:00:00",
+            "finish": "2024-11-14T10:00:00",
+            "track": {
+              "title_en": "Plastic world  has won.  AI as a co-creator",
+              "title_ru": "Пластмассовый мир победил. ИИ как соавтор"
+            },
+            "hall": {
+              "title_en": "Lecture hall",
+              "title_ru": "Лекционный зал"
+            },
+            "day": {
+              "day_ru": "14 Ноября",
+              "day_en": "14 November",
+              "date_typed": "2024-11-14"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
