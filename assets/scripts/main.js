@@ -10,7 +10,7 @@ function handlerEvents() {
 }
 function _handlerEvents() {
   _handlerEvents = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-    var events, today, formattedDate, settingDates, API_URL, getDataEvents, _getDataEvents, dataEvents, blockCards, renderCardsEvents, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
+    var events, today, formattedDate, formattedDate2, settingDatesDesktop, settingCurrentDate, settingDatesMobile, API_URL, getDataEvents, _getDataEvents, dataEvents, blockCards, renderCardsEvents, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
@@ -21,7 +21,6 @@ function _handlerEvents() {
             var selectedHall = filterSelectHall.querySelector(".select-button span").textContent;
             var dateSettingsDesktopActive = events.querySelector("#date .events-dates__item input[type='radio']:checked");
             var dateSettingsMobileActive = events.querySelector("#date .events-dates__list-mobile .select-dropdown input[type='radio']:checked");
-            console.log(dateSettingsDesktopActive);
             var eventsMessage = blockCards.querySelector(".events__message");
             eventsCards.forEach(function (eventsCard) {
               // Страны
@@ -176,17 +175,25 @@ function _handlerEvents() {
           // check current Date
           today = new Date();
           formattedDate = today.toISOString().slice(0, 10);
-          settingDates = events.querySelectorAll('#date .events-dates__item input[type="radio"]');
-          settingDates.forEach(function (settingDate) {
+          formattedDate2 = '2024-10-13';
+          settingDatesDesktop = events.querySelectorAll('#date .events-dates__list-desktop .events-dates__item input[type="radio"]');
+          settingDatesDesktop.forEach(function (settingDate) {
             if (settingDate.value === formattedDate) settingDate.checked = true;
-            //if (settingDate.value === "все даты") settingDate.checked = true;
+          });
+          settingCurrentDate = events.querySelector('#date .events-dates__list-mobile .custom-select .select-button span');
+          settingDatesMobile = events.querySelectorAll('#date .events-dates__list-mobile .custom-select input[type="radio"]');
+          settingDatesMobile.forEach(function (settingDate) {
+            if (settingDate.value === formattedDate) {
+              settingCurrentDate.textContent = formattedDate;
+              settingDate.checked = true;
+            }
           });
 
           // --- FETCH DATA.JSON ---
           API_URL = "./assets/files/data_new.json";
-          _context2.next = 15;
+          _context2.next = 19;
           return getDataEvents();
-        case 15:
+        case 19:
           dataEvents = _context2.sent;
           blockCards = document.querySelector(".events__cards"); // --------- Render Cards ---------
           renderCardsEvents(dataEvents);
@@ -208,7 +215,7 @@ function _handlerEvents() {
           // Dates
 
           // --------- END Filters ---------
-        case 28:
+        case 32:
         case "end":
           return _context2.stop();
       }
