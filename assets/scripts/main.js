@@ -10,14 +10,16 @@ function handlerEvents() {
 }
 function _handlerEvents() {
   _handlerEvents = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-    var events, API_URL, getDataEvents, _getDataEvents, dataEvents, blockCards, renderCardsEvents, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventFilter;
+    var events, API_URL, getDataEvents, _getDataEvents, dataEvents, blockCards, renderCardsEvents, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          handlerEventFilter = function _handlerEventFilter() {
+          handlerEventSettings = function _handlerEventSettings() {
+            // ---Filter ---
             var selectedCountry = filterSelectCountry.querySelector(".select-button span").textContent;
             var selectedTrack = filterSelectTrack.querySelector(".select-button span").textContent;
             var selectedHall = filterSelectHall.querySelector(".select-button span").textContent;
+            var dateSettingsActive = events.querySelector("#date .events-dates__item input[type='radio']:checked");
             var eventsMessage = blockCards.querySelector(".events__message");
             eventsCards.forEach(function (eventsCard) {
               // Страны
@@ -30,8 +32,6 @@ function _handlerEvents() {
               var matchingTrack = dataTrackAttrs.some(function (dataTrack) {
                 return selectedTrack === eventsCard.getAttribute(dataTrack.name) || selectedTrack === "Трек программы";
               });
-              // Старый вариант
-              //const matchingTrack = selectedTrack === eventsCard.dataset.track || selectedTrack === "Трек программы";
 
               // Залы
               var dataHallAttrs = Array.from(eventsCard.attributes).filter(function (attr) {
@@ -40,10 +40,15 @@ function _handlerEvents() {
               var matchingHall = dataHallAttrs.some(function (dataHall) {
                 return selectedHall === eventsCard.getAttribute(dataHall.name) || selectedHall === "Все залы";
               });
-              // Старый вариант
-              //const matchingHall = selectedHall === eventsCard.dataset.hall || selectedHall === "Все залы";
 
-              eventsCard.classList.toggle("js-hidden", !(matchingCountry && matchingTrack && matchingHall));
+              // Даты
+              var dataDateAttrs = Array.from(eventsCard.attributes).filter(function (attr) {
+                return attr.name.startsWith('data-date');
+              });
+              var matchingDate = dataDateAttrs.some(function (dataDate) {
+                return dateSettingsActive.value === eventsCard.getAttribute(dataDate.name) || dateSettingsActive.value === "все даты";
+              });
+              eventsCard.classList.toggle("js-hidden", !(matchingCountry && matchingTrack && matchingHall && matchingDate));
             });
             var isEmpty = Array.from(eventsCards).every(function (card) {
               return card.classList.contains("js-hidden");
@@ -51,6 +56,7 @@ function _handlerEvents() {
             eventsMessage.classList.toggle("hidden", !isEmpty);
           };
           fillingDataFilter = function _fillingDataFilter() {
+            // Создание и добавление элементов списка в фильтре
             function addItemsDropdown(value, name, parent) {
               var li = document.createElement("li");
               li.innerHTML = "\n        <label>\n          <span>".concat(value, "</span>\n          <input type=\"radio\" name=").concat(name, " value=").concat(value, ">\n        </label>");
@@ -66,6 +72,8 @@ function _handlerEvents() {
                 return JSON.stringify(obj) === JSON.stringify(value);
               }) === index;
             });
+
+            // Добавляем список стран из json в dropdown фильтра
             var filterCountriesDropdown = filterSelectCountry.querySelector(".select-dropdown");
             countryList.forEach(function (country) {
               return addItemsDropdown(country, 'country', filterCountriesDropdown);
@@ -81,6 +89,8 @@ function _handlerEvents() {
                 return JSON.stringify(obj) === JSON.stringify(value);
               }) === index;
             });
+
+            // Добавляем список треков из json в dropdown фильтра
             var filterTracksDropdown = filterSelectTrack.querySelector(".select-dropdown");
             trackList.forEach(function (track) {
               return addItemsDropdown(track, 'track', filterTracksDropdown);
@@ -96,6 +106,8 @@ function _handlerEvents() {
                 return JSON.stringify(obj) === JSON.stringify(value);
               }) === index;
             });
+
+            // Добавляем список залов из json в dropdown фильтра
             var filterHallsDropdown = filterSelectHall.querySelector(".select-dropdown");
             hallList.forEach(function (hall) {
               return addItemsDropdown(hall, hall, filterHallsDropdown);
@@ -115,6 +127,7 @@ function _handlerEvents() {
               dataEvent['sessions_speaker'].forEach(function (session, i) {
                 article.setAttribute("data-hall-".concat(i), session['sessions_id'].hall['title_ru']);
                 article.setAttribute("data-track-".concat(i), session['sessions_id'].track['title_ru']);
+                article.setAttribute("data-date-".concat(i), session['sessions_id'].day['date_typed']);
               });
               article.innerHTML = "\n        <div class=\"events-card__header\">\n          <div class=\"events-card__author\">\n            <span class=\"events-card__author-name\">".concat(dataEvent["first_name_ru"], " ").concat(dataEvent["last_name_ru"], "</span>\n            <span class=\"events-card__author-country\">").concat(dataEvent["country"]["name_ru"], "</span>\n          </div>\n          <img class=\"events-card__img\" src= https://forumnewmedia-api.com/assets/").concat(dataEvent["photo"], "?height=70&format=webp&quality=50 alt=\"userpic\">\n        </div>\n        <div class=\"events-card__desc\">\n          <p>").concat(dataEvent["about_ru"], "</p>\n        </div>");
               blockCards.appendChild(article);
@@ -163,19 +176,23 @@ function _handlerEvents() {
           renderCardsEvents(dataEvents);
           // ---------END Render Cards ---------
           // --------- Filters ---------
+          eventsSettings = document.querySelector("#settings");
           filterEvents = document.querySelector("#filter");
           filterSelectCountry = filterEvents.querySelector(".events-filter__country");
           filterSelectTrack = filterEvents.querySelector(".events-filter__track");
           filterSelectHall = filterEvents.querySelector(".events-filter__hall");
           eventsCards = blockCards.querySelectorAll(".events-card");
-          filterEvents.addEventListener("change", handlerEventFilter);
-          filterEvents.dispatchEvent(new Event('change'));
+          eventsSettings.addEventListener("change", handlerEventSettings);
+          eventsSettings.dispatchEvent(new Event('change'));
 
           // --- Заполнение фильтра ---
           fillingDataFilter();
+          ;
+
+          // Dates
 
           // --------- END Filters ---------
-        case 22:
+        case 24:
         case "end":
           return _context2.stop();
       }
@@ -183,6 +200,7 @@ function _handlerEvents() {
   }));
   return _handlerEvents.apply(this, arguments);
 }
+;
 "use strict";
 "use strict";
 
