@@ -7,8 +7,6 @@
   margin: 0 auto
   @include mobile
     width: 100%
-
-
   &.active
     background-color: #fff
     color: $bg-color
@@ -20,7 +18,6 @@
     .select-button
       border-bottom-color: transparent
     .select-button svg
-      stroke: $bg-color
       transform: rotate(180deg)
   .select-button
     padding: 8px 64px
@@ -33,6 +30,8 @@
     justify-content: center
     border: 1px solid #fff
     gap: 14px
+    &:hover
+      background-color: rgba(#fff, 0.2)
     @include mobile
       width: 100%
 
@@ -41,7 +40,6 @@
     width: 100%
     background-color: #fff
     border-top-color: transparent
-    overflow-y: auto
     padding: 8px 0
     flex-direction: column
     gap: 16px
@@ -49,6 +47,8 @@
     display: none
     border-radius: 0 0 32px 32px
     box-shadow: rgba(#000, 0.2) 0 3px 3px
+    overflow: auto
+    max-height: 400px
     li
       position: relative
       cursor: pointer

@@ -1,4 +1,4 @@
-.events
+.events#events
     .events__container.container
         h1.events__title Хедлайнеры и спикеры 2024
 
@@ -31,34 +31,24 @@
             .events-filter__list#filter
                 .custom-select.events-filter__country
                     button.select-button(type="button")
-                        span Страна
+                        span Все страны
                         include ../../img/arrow.svg
                     ul.select-dropdown
-                        +select-item("Страна", "country")
-                        +select-item("ЮАР", "country")
-                        +select-item("Сербия", "country")
-                        +select-item("Болгария", "country")
+                        +select-item("Все страны", "country")
 
-                .custom-select.events-filter__program
+                .custom-select.events-filter__track
                     button.select-button(type="button")
                         span Трек программы
                         include ../../img/arrow.svg
                     ul.select-dropdown
-                        +select-item("Трек программы", "program")
-                        +select-item("New Money. Экономика новых медиа", "program")
-                        +select-item("Пластмассовый мир победил. ИИ как соавтор", "program")
-                        +select-item("Уходящий поезд: кино и новые медиа", "program")
-                        +select-item("Press Start: виртуальные пространства, видеоигры и киберспорт", "program")
+                        +select-item("Трек программы", "track")
 
                 .custom-select.events-filter__hall
                     button.select-button(type="button")
-                        span Зал
+                        span Все залы
                         include ../../img/arrow.svg
                     ul.select-dropdown
-                        +select-item("Зал", "hall")
-                        +select-item("Зал 1", "hall")
-                        +select-item("Зал 2", "hall")
-                        +select-item("Зал 3", "hall")
+                        +select-item("Все залы", "hall")
 
 
         //--- Карточки ---

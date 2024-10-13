@@ -1,0 +1,107 @@
+// --- Program ---
+.program
+
+  &__title
+    color: #fff
+    text-transform: uppercase
+    font-size: 29px
+    font-weight: 600
+    margin-bottom: 32px
+    @media (min-width: $width-mobile)
+      margin-left: 72px
+
+  &__table
+    color: $bg-color
+    background-color: #fff
+    border-radius: 20px
+
+  &-nav
+    background-color: $bg-color
+    border-radius: 24px
+    padding: 4px
+    color: #fff
+    text-transform: uppercase
+    border: 1px solid #fff
+    display: flex
+    gap: 32px
+    justify-content: space-between
+    align-items: center
+
+
+  &-nav__dates-desktop
+    border-radius: 24px
+    display: flex
+    @include mobile
+      display: none
+    .program-nav__date
+      display: flex
+      align-items: center
+      color: #fff
+      font-size: 18px
+      border-radius: 24px
+      min-height: 42px
+      padding: 8px 64px
+      white-space: nowrap
+      &:has(input:checked)
+        color: $bg-color
+        background: $accent
+      &:hover
+        background-color: rgba(#fff, 0.2)
+      input[type="radio"]
+        display: none
+
+  &-nav__halls
+    margin: 0
+    color: $bg-color
+    .select-button
+      background-color: #fff
+      &:hover
+        background-color: rgba(#fff, 0.9)
+
+
+
+  // --- Content ---
+  &-content
+    padding: 24px
+
+    &__list
+      display: flex
+      flex-direction: column
+      gap: 24px
+
+  &-item
+    display: grid
+    grid-template-columns: auto 120px 120px
+    gap: 32px
+
+    &__title
+      font-size: 21px
+
+    &__time
+      display: flex
+      flex-direction: column
+      gap: 4px
+      text-align: center
+      span
+        font-size: 12px
+        @include mobile
+          font-size: 16px
+
+    &__more
+      width: fit-content
+      user-select: none
+      grid-column: 1 / 2
+      input[type="checkbox"]
+        display: none
+      font-weight: 600
+      padding: 4px 16px 0 0
+      border-top: 2px solid $accent
+    &:has(input:checked) .program-item__content
+      display: block
+
+    &__content
+      display: none
+      grid-column: 1 / 2
+
+
+

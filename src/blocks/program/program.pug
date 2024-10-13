@@ -1,0 +1,47 @@
+.program#program
+    .program__container.container
+
+        h1.program__title Программа
+
+        .program__table
+            // Nav table
+            .program__table-nav.program-nav
+
+                fieldset.program-nav__dates-desktop
+                    label.program-nav__date 13 ноября
+                        input(type="radio" name="date" value="13 ноября" checked)
+                    label.program-nav__date 14 ноября
+                        input(type="radio" name="date" value="14 ноября")
+
+                .custom-select.program-nav__halls
+                    button.select-button(type="button")
+                        span Все залы
+                        include ../../img/arrow.svg
+                    ul.select-dropdown
+                        +select-item("Все залы", "hall")
+                        +select-item("Зал 1", "hall")
+                        +select-item("Зал 2", "hall")
+                        +select-item("Зал 3", "hall")
+
+            .program__table-content.program-content
+                ul.program-content__list
+                    li.program-content__item.program-item
+                        h2.program-item__title Будущее коммуникации / коммуникация ради будущего
+                        .program-item__time.program-item__time-start
+                            time 10:00
+                            span главный зал
+                        .program-item__time.program-item__time-end
+                            time 10:50
+                            span конец сессии
+
+                        .program-item__content
+                            .program-item__content-text
+                                p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+
+
+                        label.program-item__more подробнее
+                            input(type="checkbox")
+
+
+
+
