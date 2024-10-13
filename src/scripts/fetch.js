@@ -8,11 +8,20 @@ async function handlerEvents() {
   // check current Date
   const today = new Date();
   const formattedDate = today.toISOString().slice(0, 10);
+  const formattedDate2 = '2024-10-13';
 
-  const settingDates = events.querySelectorAll('#date .events-dates__item input[type="radio"]');
-  settingDates.forEach(settingDate => {
+  const settingDatesDesktop = events.querySelectorAll('#date .events-dates__list-desktop .events-dates__item input[type="radio"]');
+  settingDatesDesktop.forEach(settingDate => {
     if (settingDate.value === formattedDate) settingDate.checked = true;
-    //if (settingDate.value === "все даты") settingDate.checked = true;
+  });
+
+  const settingCurrentDate = events.querySelector('#date .events-dates__list-mobile .custom-select .select-button span');
+  const settingDatesMobile = events.querySelectorAll('#date .events-dates__list-mobile .custom-select input[type="radio"]');
+  settingDatesMobile.forEach(settingDate => {
+    if (settingDate.value === formattedDate) {
+      settingCurrentDate.textContent = formattedDate;
+      settingDate.checked = true;
+    }
   });
 
 
@@ -146,8 +155,6 @@ async function handlerEvents() {
     const dateSettingsDesktopActive = events.querySelector("#date .events-dates__item input[type='radio']:checked");
     const dateSettingsMobileActive = events.querySelector("#date .events-dates__list-mobile .select-dropdown input[type='radio']:checked");
 
-    console.log(dateSettingsDesktopActive)
-
 
 
     const eventsMessage = blockCards.querySelector(".events__message");
@@ -164,7 +171,6 @@ async function handlerEvents() {
       const dataHallAttrs = Array.from(eventsCard.attributes).filter(attr => attr.name.startsWith('data-hall'));
       const matchingHall = dataHallAttrs.some(dataHall => selectedHall === eventsCard.getAttribute(dataHall.name) || selectedHall === "Все залы")
 
-
       // Даты (desktop)
       const dataDateAttrs = Array.from(eventsCard.attributes).filter(attr => attr.name.startsWith('data-date'));
       const matchingDateDesktop = dataDateAttrs.some(dataDate => dateSettingsDesktopActive.value === eventsCard.getAttribute(dataDate.name) || dateSettingsDesktopActive.value === "все даты");
@@ -172,19 +178,13 @@ async function handlerEvents() {
       const matchingDateMobile = dataDateAttrs.some(dataDate => dateSettingsMobileActive.value === eventsCard.getAttribute(dataDate.name) || dateSettingsMobileActive.value === "все даты");
 
 
-        // Показ/Скрытие карточек по условию фильтра
+      // Показ/Скрытие карточек по условию фильтра
       eventsCard.classList.toggle("js-hidden", !(matchingCountry && matchingTrack && matchingHall && matchingDateDesktop && matchingDateMobile));
     });
 
 
-
     const isEmpty = Array.from(eventsCards).every(card => card.classList.contains("js-hidden"));
     eventsMessage.classList.toggle("hidden", !isEmpty);
-
-
-
-
-
 
   }
 
