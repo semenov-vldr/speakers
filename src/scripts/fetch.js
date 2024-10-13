@@ -35,6 +35,7 @@ async function handlerEvents() {
         dataEvent['sessions_speaker'].forEach((session, i) => {
           article.setAttribute(`data-hall-${i}`, session['sessions_id'].hall['title_ru']);
           article.setAttribute(`data-track-${i}`, session['sessions_id'].track['title_ru']);
+          article.setAttribute(`data-date-${i}`, session['sessions_id'].day['date_typed']);
         });
 
         article.innerHTML = `
@@ -52,12 +53,12 @@ async function handlerEvents() {
         blockCards.appendChild(article);
     });
   }
-
 // ---------END Render Cards ---------
 
 
 
 // --------- Filters ---------
+  const eventsSettings = document.querySelector("#settings");
   const filterEvents = document.querySelector("#filter");
 
   const filterSelectCountry = filterEvents.querySelector(".events-filter__country");
@@ -66,8 +67,10 @@ async function handlerEvents() {
 
   const eventsCards = blockCards.querySelectorAll(".events-card");
 
-  filterEvents.addEventListener("change", handlerEventFilter);
-  filterEvents.dispatchEvent(new Event('change'));
+  eventsSettings.addEventListener("change", handlerEventSettings);
+  eventsSettings.dispatchEvent(new Event('change'));
+
+
 
 
   // --- Заполнение фильтра ---
@@ -75,6 +78,7 @@ async function handlerEvents() {
 
   function fillingDataFilter() {
 
+    // Создание и добавление элементов списка в фильтре
     function addItemsDropdown(value, name, parent) {
       const li = document.createElement("li");
       li.innerHTML = `
@@ -90,34 +94,45 @@ async function handlerEvents() {
       .map(item => item.country['name_ru'])
       .filter((value, index, self) => self.findIndex((obj) => JSON.stringify(obj) === JSON.stringify(value)) === index);
 
+    // Добавляем список стран из json в dropdown фильтра
     const filterCountriesDropdown = filterSelectCountry.querySelector(".select-dropdown");
     countryList.forEach(country => addItemsDropdown(country, 'country',filterCountriesDropdown));
+
 
     // -- tracks из json --
     const trackList = dataEvents
       .map(item => item.sessions_speaker).flat().map(item => item.sessions_id.track.title_ru)
       .filter((value, index, self) => self.findIndex((obj) => JSON.stringify(obj) === JSON.stringify(value)) === index);
 
+    // Добавляем список треков из json в dropdown фильтра
     const filterTracksDropdown = filterSelectTrack.querySelector(".select-dropdown");
     trackList.forEach(track => addItemsDropdown(track, 'track', filterTracksDropdown));
+
 
     // -- halls из json --
     const hallList = dataEvents
       .map(item => item.sessions_speaker).flat().map(item => item.sessions_id.hall.title_ru)
       .filter((value, index, self) => self.findIndex((obj) => JSON.stringify(obj) === JSON.stringify(value)) === index);
 
+    // Добавляем список залов из json в dropdown фильтра
     const filterHallsDropdown = filterSelectHall.querySelector(".select-dropdown");
     hallList.forEach(hall => addItemsDropdown(hall, hall, filterHallsDropdown));
-
-  }
-
+  };
 
 
-  function handlerEventFilter() {
 
+  // Dates
+
+  function handlerEventSettings() {
+
+    // ---Filter ---
     const selectedCountry = filterSelectCountry.querySelector(".select-button span").textContent;
     const selectedTrack = filterSelectTrack.querySelector(".select-button span").textContent;
     const selectedHall = filterSelectHall.querySelector(".select-button span").textContent;
+
+    const dateSettingsActive = events.querySelector("#date .events-dates__item input[type='radio']:checked");
+
+
 
     const eventsMessage = blockCards.querySelector(".events__message");
 
@@ -125,30 +140,37 @@ async function handlerEvents() {
       // Страны
       const matchingCountry = selectedCountry === eventsCard.dataset.country || selectedCountry === "Все страны";
 
-
       // Программы
       const dataTrackAttrs = Array.from(eventsCard.attributes).filter(attr => attr.name.startsWith('data-track'));
       const matchingTrack = dataTrackAttrs.some(dataTrack => selectedTrack === eventsCard.getAttribute(dataTrack.name) || selectedTrack === "Трек программы")
-      // Старый вариант
-      //const matchingTrack = selectedTrack === eventsCard.dataset.track || selectedTrack === "Трек программы";
-
 
       // Залы
       const dataHallAttrs = Array.from(eventsCard.attributes).filter(attr => attr.name.startsWith('data-hall'));
       const matchingHall = dataHallAttrs.some(dataHall => selectedHall === eventsCard.getAttribute(dataHall.name) || selectedHall === "Все залы")
-        // Старый вариант
-      //const matchingHall = selectedHall === eventsCard.dataset.hall || selectedHall === "Все залы";
 
 
-      eventsCard.classList.toggle("js-hidden", !(matchingCountry && matchingTrack && matchingHall));
+      // Даты
+      const dataDateAttrs = Array.from(eventsCard.attributes).filter(attr => attr.name.startsWith('data-date'));
+      const matchingDate = dataDateAttrs.some(dataDate => dateSettingsActive.value === eventsCard.getAttribute(dataDate.name) || dateSettingsActive.value === "все даты")
+
+
+      eventsCard.classList.toggle("js-hidden", !(matchingCountry && matchingTrack && matchingHall && matchingDate));
     });
+
+
 
     const isEmpty = Array.from(eventsCards).every(card => card.classList.contains("js-hidden"));
     eventsMessage.classList.toggle("hidden", !isEmpty);
+
+
+
+
+
+
   }
 
 // --------- END Filters ---------
-}
+};
 
 
 
