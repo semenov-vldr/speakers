@@ -10,7 +10,7 @@ function handlerEvents() {
 }
 function _handlerEvents() {
   _handlerEvents = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-    var events, API_URL, getDataEvents, _getDataEvents, dataEvents, blockCards, renderCardsEvents, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
+    var events, today, formattedDate, settingDates, API_URL, getDataEvents, _getDataEvents, dataEvents, blockCards, renderCardsEvents, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
@@ -19,7 +19,9 @@ function _handlerEvents() {
             var selectedCountry = filterSelectCountry.querySelector(".select-button span").textContent;
             var selectedTrack = filterSelectTrack.querySelector(".select-button span").textContent;
             var selectedHall = filterSelectHall.querySelector(".select-button span").textContent;
-            var dateSettingsActive = events.querySelector("#date .events-dates__item input[type='radio']:checked");
+            var dateSettingsDesktopActive = events.querySelector("#date .events-dates__item input[type='radio']:checked");
+            var dateSettingsMobileActive = events.querySelector("#date .events-dates__list-mobile .select-dropdown input[type='radio']:checked");
+            console.log(dateSettingsDesktopActive);
             var eventsMessage = blockCards.querySelector(".events__message");
             eventsCards.forEach(function (eventsCard) {
               // Страны
@@ -41,14 +43,19 @@ function _handlerEvents() {
                 return selectedHall === eventsCard.getAttribute(dataHall.name) || selectedHall === "Все залы";
               });
 
-              // Даты
+              // Даты (desktop)
               var dataDateAttrs = Array.from(eventsCard.attributes).filter(function (attr) {
                 return attr.name.startsWith('data-date');
               });
-              var matchingDate = dataDateAttrs.some(function (dataDate) {
-                return dateSettingsActive.value === eventsCard.getAttribute(dataDate.name) || dateSettingsActive.value === "все даты";
+              var matchingDateDesktop = dataDateAttrs.some(function (dataDate) {
+                return dateSettingsDesktopActive.value === eventsCard.getAttribute(dataDate.name) || dateSettingsDesktopActive.value === "все даты";
               });
-              eventsCard.classList.toggle("js-hidden", !(matchingCountry && matchingTrack && matchingHall && matchingDate));
+              var matchingDateMobile = dataDateAttrs.some(function (dataDate) {
+                return dateSettingsMobileActive.value === eventsCard.getAttribute(dataDate.name) || dateSettingsMobileActive.value === "все даты";
+              });
+
+              // Показ/Скрытие карточек по условию фильтра
+              eventsCard.classList.toggle("js-hidden", !(matchingCountry && matchingTrack && matchingHall && matchingDateDesktop && matchingDateMobile));
             });
             var isEmpty = Array.from(eventsCards).every(function (card) {
               return card.classList.contains("js-hidden");
@@ -110,7 +117,7 @@ function _handlerEvents() {
             // Добавляем список залов из json в dropdown фильтра
             var filterHallsDropdown = filterSelectHall.querySelector(".select-dropdown");
             hallList.forEach(function (hall) {
-              return addItemsDropdown(hall, hall, filterHallsDropdown);
+              return addItemsDropdown(hall, 'hall', filterHallsDropdown);
             });
           };
           renderCardsEvents = function _renderCardsEvents(dataEvents) {
@@ -166,11 +173,20 @@ function _handlerEvents() {
           }
           return _context2.abrupt("return");
         case 8:
+          // check current Date
+          today = new Date();
+          formattedDate = today.toISOString().slice(0, 10);
+          settingDates = events.querySelectorAll('#date .events-dates__item input[type="radio"]');
+          settingDates.forEach(function (settingDate) {
+            if (settingDate.value === formattedDate) settingDate.checked = true;
+            //if (settingDate.value === "все даты") settingDate.checked = true;
+          });
+
           // --- FETCH DATA.JSON ---
           API_URL = "./assets/files/data_new.json";
-          _context2.next = 11;
+          _context2.next = 15;
           return getDataEvents();
-        case 11:
+        case 15:
           dataEvents = _context2.sent;
           blockCards = document.querySelector(".events__cards"); // --------- Render Cards ---------
           renderCardsEvents(dataEvents);
@@ -192,7 +208,7 @@ function _handlerEvents() {
           // Dates
 
           // --------- END Filters ---------
-        case 24:
+        case 28:
         case "end":
           return _context2.stop();
       }
