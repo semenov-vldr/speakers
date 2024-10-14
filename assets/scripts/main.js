@@ -10,7 +10,7 @@ function handlerEvents() {
 }
 function _handlerEvents() {
   _handlerEvents = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-    var events, today, formattedDate, formattedDate2, settingDatesDesktop, settingCurrentDate, settingDatesMobile, API_URL, getDataEvents, _getDataEvents, dataEvents, blockCards, renderCardsEvents, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
+    var events, today, formattedDate, formattedDate2, settingDatesDesktop, settingCurrentDate, settingDatesMobile, API_URL, API_URL_CURRENT, getDataEvents, _getDataEvents, dataEvents, blockCards, mapFields, preprocessData, LANG, renderCardsEvents, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
@@ -72,7 +72,7 @@ function _handlerEvents() {
 
             // -- Страны из json --
             var countryList = dataEvents.map(function (item) {
-              return item.country['name_ru'];
+              return item.country['name'];
             }).filter(function (value, index, self) {
               return self.findIndex(function (obj) {
                 return JSON.stringify(obj) === JSON.stringify(value);
@@ -89,7 +89,7 @@ function _handlerEvents() {
             var trackList = dataEvents.map(function (item) {
               return item.sessions_speaker;
             }).flat().map(function (item) {
-              return item.sessions_id.track.title_ru;
+              return item.sessions_id.track.title;
             }).filter(function (value, index, self) {
               return self.findIndex(function (obj) {
                 return JSON.stringify(obj) === JSON.stringify(value);
@@ -106,7 +106,7 @@ function _handlerEvents() {
             var hallList = dataEvents.map(function (item) {
               return item.sessions_speaker;
             }).flat().map(function (item) {
-              return item.sessions_id.hall.title_ru;
+              return item.sessions_id.hall.title;
             }).filter(function (value, index, self) {
               return self.findIndex(function (obj) {
                 return JSON.stringify(obj) === JSON.stringify(value);
@@ -127,17 +127,78 @@ function _handlerEvents() {
             dataEvents.forEach(function (dataEvent) {
               var article = document.createElement("article");
               article.classList.add("events__card", "events-card");
-              article.dataset.country = dataEvent.country['name_ru'];
+              article.dataset.country = dataEvent.country['name'];
 
               // Добавление всех треков и залов для спикера в дата-атрибуты
-              dataEvent['sessions_speaker'].forEach(function (session, i) {
-                article.setAttribute("data-hall-".concat(i), session['sessions_id'].hall['title_ru']);
-                article.setAttribute("data-track-".concat(i), session['sessions_id'].track['title_ru']);
-                article.setAttribute("data-date-".concat(i), session['sessions_id'].day['date_typed']);
-              });
-              article.innerHTML = "\n        <div class=\"events-card__header\">\n          <div class=\"events-card__author\">\n            <span class=\"events-card__author-name\">".concat(dataEvent["first_name_ru"], " ").concat(dataEvent["last_name_ru"], "</span>\n            <span class=\"events-card__author-country\">").concat(dataEvent["country"]["name_ru"], "</span>\n          </div>\n          <img class=\"events-card__img\" src= https://forumnewmedia-api.com/assets/").concat(dataEvent["photo"], "?height=70&format=webp&quality=50 alt=\"userpic\">\n        </div>\n        <div class=\"events-card__desc\">\n          <p>").concat(dataEvent["about_ru"], "</p>\n        </div>");
+              if (dataEvent['sessions_speaker'].length) {
+                dataEvent['sessions_speaker'].forEach(function (session, i) {
+                  article.setAttribute("data-hall-".concat(i), session['sessions_id'].hall['title']);
+                  article.setAttribute("data-track-".concat(i), session['sessions_id'].track['title']);
+                  article.setAttribute("data-date-".concat(i), session['sessions_id'].day['date_typed']);
+                });
+              }
+              // В случае, если в карточке нет данных о мероприятиях (пустой массив 'sessions_speaker')
+              else {
+                article.setAttribute('data-hall', "empty");
+                article.setAttribute('data-track', "empty");
+                article.setAttribute('data-date', "empty");
+              }
+              var imgSrc = "https://forumnewmedia-api.com/assets/".concat(dataEvent["photo"], "?height=70&format=webp&quality=50 alt=\"userpic\"");
+              article.innerHTML = "\n        <div class=\"events-card__header\">\n          <div class=\"events-card__author\">\n            <span class=\"events-card__author-name\">".concat(dataEvent["first_name"], " ").concat(dataEvent["last_name"], "</span>\n            <span class=\"events-card__author-country\">").concat(dataEvent["country"]["name"], "</span>\n          </div>\n          <img class=\"events-card__img\" src=").concat(imgSrc, ">\n        </div>\n        <div class=\"events-card__desc\">\n          <p>").concat(dataEvent["about"], "</p>\n        </div>");
               blockCards.appendChild(article);
+
+              // Добавление дефолтной картинки
+              var cardImg = article.querySelector("img");
+              cardImg.addEventListener("error", function () {
+                var defaultImg = "https://forumnewmedia-api.com/assets/944cb306-eb44-48b9-927e-b7a502be7fa4";
+                cardImg.src = defaultImg;
+              });
             });
+          };
+          preprocessData = function _preprocessData(dataList, LANG) {
+            return dataList.map(function (item) {
+              return mapFields(item, LANG);
+            });
+          };
+          mapFields = function _mapFields(item, LANG) {
+            return {
+              "id": item.id,
+              "first_name": LANG === 'EN' ? item.first_name_en : item.first_name_ru,
+              "last_name": LANG === 'EN' ? item.last_name_en : item.last_name_ru,
+              "about": LANG === 'EN' ? item.about_en : item.about_ru,
+              "display_order": item.display_order,
+              "photo": item.photo,
+              "country": {
+                "id": item.country.id,
+                "name": LANG === 'EN' ? item.country.name_en : item.country.name_ru
+              },
+              "sessions_speaker": Array.isArray(item.sessions_speaker) ? item.sessions_speaker.map(function (s) {
+                if (s.sessions_id) {
+                  return {
+                    "sessions_id": {
+                      "start": s.sessions_id.start,
+                      "finish": s.sessions_id.finish,
+                      "track": {
+                        "id": s.sessions_id.track.id,
+                        "title": LANG === 'EN' ? s.sessions_id.track.title_en : s.sessions_id.track.title_ru
+                      },
+                      "hall": {
+                        "id": s.sessions_id.hall.id,
+                        "title": LANG === 'EN' ? s.sessions_id.hall.title_en : s.sessions_id.hall.title_ru
+                      },
+                      "day": {
+                        "id": s.sessions_id.day.id,
+                        "day": LANG === 'EN' ? s.sessions_id.day.day_en : s.sessions_id.day.day_ru,
+                        "date_typed": s.sessions_id.day.date_typed
+                      }
+                    }
+                  };
+                }
+                return null;
+              }).filter(function (s) {
+                return s !== null;
+              }) : []
+            };
           };
           _getDataEvents = function _getDataEvents3() {
             _getDataEvents = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -145,7 +206,7 @@ function _handlerEvents() {
                 while (1) switch (_context.prev = _context.next) {
                   case 0:
                     _context.next = 2;
-                    return fetch(API_URL).then(function (response) {
+                    return fetch(API_URL_CURRENT).then(function (response) {
                       return response.json();
                     }).then(function (events) {
                       return events.data;
@@ -167,11 +228,11 @@ function _handlerEvents() {
           };
           events = document.querySelector("#events");
           if (events) {
-            _context2.next = 8;
+            _context2.next = 10;
             break;
           }
           return _context2.abrupt("return");
-        case 8:
+        case 10:
           // check current Date
           today = new Date();
           formattedDate = today.toISOString().slice(0, 10);
@@ -191,11 +252,17 @@ function _handlerEvents() {
 
           // --- FETCH DATA.JSON ---
           API_URL = "./assets/files/data_new.json";
-          _context2.next = 19;
+          API_URL_CURRENT = 'https://forumnewmedia-api.com/items/speakers?fields%5B%5D=id,first_name_ru,last_name_ru,first_name_en,last_name_en,about_ru,about_en,country.id,country.name_ru,country.name_en,display_order,photo,sessions_speaker.sessions_id.track.id,sessions_speaker.sessions_id.track.title_en,sessions_speaker.sessions_id.track.title_ru,sessions_speaker.sessions_id.hall.id,sessions_speaker.sessions_id.hall.title_en,sessions_speaker.sessions_id.hall.title_ru,sessions_speaker.sessions_id.start,sessions_speaker.sessions_id.finish,sessions_speaker.sessions_id.day.id,sessions_speaker.sessions_id.day.day_ru,sessions_speaker.sessions_id.day.day_en,sessions_speaker.sessions_id.day.date_typed';
+          _context2.next = 22;
           return getDataEvents();
-        case 19:
+        case 22:
           dataEvents = _context2.sent;
-          blockCards = document.querySelector(".events__cards"); // --------- Render Cards ---------
+          blockCards = document.querySelector(".events__cards"); // --------- Выбор языка RU/EN ---------
+          LANG = "RU";
+          dataEvents = preprocessData(dataEvents, LANG);
+
+          // --------- Render Cards ---------
+
           renderCardsEvents(dataEvents);
           // ---------END Render Cards ---------
           // --------- Filters ---------
@@ -215,7 +282,7 @@ function _handlerEvents() {
           // Dates
 
           // --------- END Filters ---------
-        case 32:
+        case 37:
         case "end":
           return _context2.stop();
       }
