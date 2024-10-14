@@ -206,7 +206,7 @@ function _handlerEvents() {
                 while (1) switch (_context.prev = _context.next) {
                   case 0:
                     _context.next = 2;
-                    return fetch(API_URL).then(function (response) {
+                    return fetch(API_URL_CURRENT).then(function (response) {
                       return response.json();
                     }).then(function (events) {
                       return events.data;
