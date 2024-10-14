@@ -30,7 +30,7 @@ async function handlerEvents() {
   const API_URL_CURRENT = 'https://forumnewmedia-api.com/items/speakers?fields%5B%5D=id,first_name_ru,last_name_ru,first_name_en,last_name_en,about_ru,about_en,country.id,country.name_ru,country.name_en,display_order,photo,sessions_speaker.sessions_id.track.id,sessions_speaker.sessions_id.track.title_en,sessions_speaker.sessions_id.track.title_ru,sessions_speaker.sessions_id.hall.id,sessions_speaker.sessions_id.hall.title_en,sessions_speaker.sessions_id.hall.title_ru,sessions_speaker.sessions_id.start,sessions_speaker.sessions_id.finish,sessions_speaker.sessions_id.day.id,sessions_speaker.sessions_id.day.day_ru,sessions_speaker.sessions_id.day.day_en,sessions_speaker.sessions_id.day.date_typed'
 
   async function getDataEvents() {
-    return await fetch(API_URL)
+    return await fetch(API_URL_CURRENT)
       .then((response) => response.json())
       .then(events => events.data)
       .catch((error) => alert("Ошибка при загрузке данных с сервера!", error));
