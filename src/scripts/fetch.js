@@ -27,16 +27,66 @@ async function handlerEvents() {
 
   // --- FETCH DATA.JSON ---
   const API_URL = "./assets/files/data_new.json";
+  const API_URL_CURRENT = 'https://forumnewmedia-api.com/items/speakers?fields%5B%5D=id,first_name_ru,last_name_ru,first_name_en,last_name_en,about_ru,about_en,country.id,country.name_ru,country.name_en,display_order,photo,sessions_speaker.sessions_id.track.id,sessions_speaker.sessions_id.track.title_en,sessions_speaker.sessions_id.track.title_ru,sessions_speaker.sessions_id.hall.id,sessions_speaker.sessions_id.hall.title_en,sessions_speaker.sessions_id.hall.title_ru,sessions_speaker.sessions_id.start,sessions_speaker.sessions_id.finish,sessions_speaker.sessions_id.day.id,sessions_speaker.sessions_id.day.day_ru,sessions_speaker.sessions_id.day.day_en,sessions_speaker.sessions_id.day.date_typed'
 
   async function getDataEvents() {
-    return await fetch(API_URL)
+    return await fetch(API_URL_CURRENT)
       .then((response) => response.json())
       .then(events => events.data)
       .catch((error) => alert("Ошибка при загрузке данных с сервера!", error));
   }
 
-  const dataEvents = await getDataEvents();
+  let dataEvents = await getDataEvents();
   const blockCards = document.querySelector(".events__cards");
+
+
+  // --------- Выбор языка RU/EN ---------
+
+  function mapFields(item, LANG) {
+    return  {
+      "id": item.id,
+      "first_name": LANG === 'EN' ? item.first_name_en : item.first_name_ru,
+      "last_name": LANG === 'EN' ? item.last_name_en : item.last_name_ru,
+      "about": LANG === 'EN' ? item.about_en : item.about_ru,
+      "display_order": item.display_order,
+      "photo": item.photo,
+      "country": {
+        "id": item.country.id,
+        "name": LANG === 'EN' ? item.country.name_en : item.country.name_ru
+      },
+      "sessions_speaker": Array.isArray(item.sessions_speaker) ? item.sessions_speaker.map(s => {
+        if (s.sessions_id) {
+          return {
+            "sessions_id": {
+              "start": s.sessions_id.start,
+              "finish": s.sessions_id.finish,
+              "track": {
+                "id": s.sessions_id.track.id,
+                "title": LANG === 'EN' ? s.sessions_id.track.title_en : s.sessions_id.track.title_ru
+              },
+              "hall": {
+                "id": s.sessions_id.hall.id,
+                "title": LANG === 'EN' ? s.sessions_id.hall.title_en : s.sessions_id.hall.title_ru
+              },
+              "day": {
+                "id": s.sessions_id.day.id,
+                "day": LANG === 'EN' ? s.sessions_id.day.day_en : s.sessions_id.day.day_ru,
+                "date_typed": s.sessions_id.day.date_typed
+              }
+            }
+          }
+        }
+        return null;
+      }).filter(s => s !== null) : []
+    };
+  }
+
+  function preprocessData(dataList, LANG) {
+    return dataList.map(item => mapFields(item, LANG));
+  }
+
+  const LANG = "RU";
+  dataEvents = preprocessData(dataEvents, LANG);
 
 
 // --------- Render Cards ---------
@@ -51,28 +101,48 @@ async function handlerEvents() {
     dataEvents.forEach(dataEvent => {
         const article = document.createElement("article");
         article.classList.add("events__card", "events-card");
-        article.dataset.country = dataEvent.country['name_ru'];
+        article.dataset.country = dataEvent.country['name'];
 
         // Добавление всех треков и залов для спикера в дата-атрибуты
-        dataEvent['sessions_speaker'].forEach((session, i) => {
-          article.setAttribute(`data-hall-${i}`, session['sessions_id'].hall['title_ru']);
-          article.setAttribute(`data-track-${i}`, session['sessions_id'].track['title_ru']);
-          article.setAttribute(`data-date-${i}`, session['sessions_id'].day['date_typed']);
-        });
+        if (dataEvent['sessions_speaker'].length) {
+          dataEvent['sessions_speaker'].forEach((session, i) => {
+            article.setAttribute(`data-hall-${i}`, session['sessions_id'].hall['title']);
+            article.setAttribute(`data-track-${i}`, session['sessions_id'].track['title']);
+            article.setAttribute(`data-date-${i}`, session['sessions_id'].day['date_typed']);
+          });
+        }
+        // В случае, если в карточке нет данных о мероприятиях (пустой массив 'sessions_speaker')
+        else {
+            article.setAttribute('data-hall', "empty");
+            article.setAttribute('data-track', "empty");
+            article.setAttribute('data-date', "empty");
+        }
+
+
+        const imgSrc = `https://forumnewmedia-api.com/assets/${dataEvent["photo"]}?height=70&format=webp&quality=50 alt="userpic"`;
 
         article.innerHTML = `
         <div class="events-card__header">
           <div class="events-card__author">
-            <span class="events-card__author-name">${dataEvent["first_name_ru"]} ${dataEvent["last_name_ru"]}</span>
-            <span class="events-card__author-country">${dataEvent["country"]["name_ru"]}</span>
+            <span class="events-card__author-name">${dataEvent["first_name"]} ${dataEvent["last_name"]}</span>
+            <span class="events-card__author-country">${dataEvent["country"]["name"]}</span>
           </div>
-          <img class="events-card__img" src= https://forumnewmedia-api.com/assets/${dataEvent["photo"]}?height=70&format=webp&quality=50 alt="userpic">
+          <img class="events-card__img" src=${imgSrc}>
         </div>
         <div class="events-card__desc">
-          <p>${dataEvent["about_ru"]}</p>
+          <p>${dataEvent["about"]}</p>
         </div>`;
 
         blockCards.appendChild(article);
+
+
+        // Добавление дефолтной картинки
+        const cardImg = article.querySelector("img");
+        cardImg.addEventListener("error", () => {
+          const defaultImg = "https://forumnewmedia-api.com/assets/944cb306-eb44-48b9-927e-b7a502be7fa4";
+          cardImg.src = defaultImg;
+        });
+
     });
   }
 // ---------END Render Cards ---------
@@ -113,7 +183,7 @@ async function handlerEvents() {
 
     // -- Страны из json --
     const countryList = dataEvents
-      .map(item => item.country['name_ru'])
+      .map(item => item.country['name'])
       .filter((value, index, self) => self.findIndex((obj) => JSON.stringify(obj) === JSON.stringify(value)) === index);
 
     // Добавляем список стран из json в dropdown фильтра
@@ -123,7 +193,7 @@ async function handlerEvents() {
 
     // -- tracks из json --
     const trackList = dataEvents
-      .map(item => item.sessions_speaker).flat().map(item => item.sessions_id.track.title_ru)
+      .map(item => item.sessions_speaker).flat().map(item => item.sessions_id.track.title)
       .filter((value, index, self) => self.findIndex((obj) => JSON.stringify(obj) === JSON.stringify(value)) === index);
 
     // Добавляем список треков из json в dropdown фильтра
@@ -133,7 +203,7 @@ async function handlerEvents() {
 
     // -- halls из json --
     const hallList = dataEvents
-      .map(item => item.sessions_speaker).flat().map(item => item.sessions_id.hall.title_ru)
+      .map(item => item.sessions_speaker).flat().map(item => item.sessions_id.hall.title)
       .filter((value, index, self) => self.findIndex((obj) => JSON.stringify(obj) === JSON.stringify(value)) === index);
 
     // Добавляем список залов из json в dropdown фильтра
