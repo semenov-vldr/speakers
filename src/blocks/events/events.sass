@@ -27,17 +27,25 @@
     flex-wrap: wrap
     gap: 24px
     justify-content: center
+    align-items: center
     @include mobile
       width: 100%
       flex-direction: column
       gap: 10px
-    &:has(.events-filter-button input:checked) .events-filter__list
+    &:has(.events-filter__button input:checked) .events-filter__list
       display: flex
 
   &-filter
+    display: flex
+    align-items: center
+    gap: 16px
     @include mobile
       width: 100%
-    &-button
+    &__reset
+      color: #fff
+      &:hover
+        opacity: 0.8
+    &__button
       padding: 8px 64px
       cursor: pointer
       display: flex
@@ -103,12 +111,11 @@
 
   // --- Карточки ---
   &__cards
-    //display: grid
-    //grid-template-columns: repeat(3, 1fr)
-    columns: 3 300px
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    //columns: 3 300px
     gap: 24px
     margin-top: 32px
-
     @include tablet
       grid-template-columns: repeat(2, 1fr)
       gap: 24px
@@ -128,7 +135,7 @@
     color: $bg-color
     padding: 16px
     user-select: none
-    margin-top: 24px
+    //margin-top: 24px
     &.js-hidden
       display: none
 

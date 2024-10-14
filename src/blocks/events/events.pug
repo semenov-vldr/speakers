@@ -4,16 +4,17 @@
 
         .events__settings#settings
             .events__settings-filter.events-filter
-                label.events-filter-button Все фильтры
+                //button.events-filter__reset#filter-reset(type="button") Сброс фильтра
+                label.events-filter__button Все фильтры
                     input(type="checkbox")
                     include ../../img/arrow.svg
 
             .events__settings-dates.events-dates#date
                 fieldset.events-dates__list-desktop
                     label.events-dates__item 13 ноября
-                        input(type="radio" name="dateDesk" value="2024-11-13")
+                        input(type="radio" name="dateDesk" value="13 Ноября")
                     label.events-dates__item 14 ноября
-                        input(type="radio" name="dateDesk" value="2024-11-14")
+                        input(type="radio" name="dateDesk" value="14 Ноября")
                     label.events-dates__item все даты
                         input(type="radio" name="dateDesk" value="все даты" checked)
                 .events-dates__list-mobile
@@ -23,8 +24,8 @@
                             span все даты
                             include ../../img/arrow.svg
                         ul.select-dropdown
-                            +select-item("2024-11-13", "dateMob")
-                            +select-item("2024-11-14", "dateMob")
+                            +select-item("13 Ноября", "dateMob")
+                            +select-item("14 Ноября", "dateMob")
                             li: label
                                 span все даты
                                 input(type='radio', name="dateMob" value="все даты" checked)

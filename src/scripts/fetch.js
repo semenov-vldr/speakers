@@ -10,19 +10,19 @@ async function handlerEvents() {
   const formattedDate = today.toISOString().slice(0, 10);
   const formattedDate2 = '2024-10-13';
 
-  const settingDatesDesktop = events.querySelectorAll('#date .events-dates__list-desktop .events-dates__item input[type="radio"]');
-  settingDatesDesktop.forEach(settingDate => {
-    if (settingDate.value === formattedDate) settingDate.checked = true;
-  });
-
-  const settingCurrentDate = events.querySelector('#date .events-dates__list-mobile .custom-select .select-button span');
-  const settingDatesMobile = events.querySelectorAll('#date .events-dates__list-mobile .custom-select input[type="radio"]');
-  settingDatesMobile.forEach(settingDate => {
-    if (settingDate.value === formattedDate) {
-      settingCurrentDate.textContent = formattedDate;
-      settingDate.checked = true;
-    }
-  });
+  // const settingDatesDesktop = events.querySelectorAll('#date .events-dates__list-desktop .events-dates__item input[type="radio"]');
+  // settingDatesDesktop.forEach(settingDate => {
+  //   if (settingDate.value === formattedDate) settingDate.checked = true;
+  // });
+  //
+  // const settingCurrentDate = events.querySelector('#date .events-dates__list-mobile .custom-select .select-button span');
+  // const settingDatesMobile = events.querySelectorAll('#date .events-dates__list-mobile .custom-select input[type="radio"]');
+  // settingDatesMobile.forEach(settingDate => {
+  //   if (settingDate.value === formattedDate) {
+  //     settingCurrentDate.textContent = formattedDate;
+  //     settingDate.checked = true;
+  //   }
+  // });
 
 
   // --- FETCH DATA.JSON ---
@@ -30,7 +30,7 @@ async function handlerEvents() {
   const API_URL_CURRENT = 'https://forumnewmedia-api.com/items/speakers?fields%5B%5D=id,first_name_ru,last_name_ru,first_name_en,last_name_en,about_ru,about_en,country.id,country.name_ru,country.name_en,display_order,photo,sessions_speaker.sessions_id.track.id,sessions_speaker.sessions_id.track.title_en,sessions_speaker.sessions_id.track.title_ru,sessions_speaker.sessions_id.hall.id,sessions_speaker.sessions_id.hall.title_en,sessions_speaker.sessions_id.hall.title_ru,sessions_speaker.sessions_id.start,sessions_speaker.sessions_id.finish,sessions_speaker.sessions_id.day.id,sessions_speaker.sessions_id.day.day_ru,sessions_speaker.sessions_id.day.day_en,sessions_speaker.sessions_id.day.date_typed'
 
   async function getDataEvents() {
-    return await fetch(API_URL_CURRENT)
+    return await fetch(API_URL)
       .then((response) => response.json())
       .then(events => events.data)
       .catch((error) => alert("Ошибка при загрузке данных с сервера!", error));
@@ -99,29 +99,29 @@ async function handlerEvents() {
     dataEvents.sort((a, b) => a.display_order - b.display_order);
 
     dataEvents.forEach(dataEvent => {
-        const article = document.createElement("article");
-        article.classList.add("events__card", "events-card");
-        article.dataset.country = dataEvent.country['name'];
+      const article = document.createElement("article");
+      article.classList.add("events__card", "events-card");
+      article.dataset.country = dataEvent.country['name'];
 
-        // Добавление всех треков и залов для спикера в дата-атрибуты
-        if (dataEvent['sessions_speaker'].length) {
-          dataEvent['sessions_speaker'].forEach((session, i) => {
-            article.setAttribute(`data-hall-${i}`, session['sessions_id'].hall['title']);
-            article.setAttribute(`data-track-${i}`, session['sessions_id'].track['title']);
-            article.setAttribute(`data-date-${i}`, session['sessions_id'].day['date_typed']);
-          });
-        }
-        // В случае, если в карточке нет данных о мероприятиях (пустой массив 'sessions_speaker')
-        else {
-            article.setAttribute('data-hall', "empty");
-            article.setAttribute('data-track', "empty");
-            article.setAttribute('data-date', "empty");
-        }
+      // Добавление всех треков и залов для спикера в дата-атрибуты
+      if (dataEvent['sessions_speaker'].length) {
+        dataEvent['sessions_speaker'].forEach((session, i) => {
+          article.setAttribute(`data-hall-${i}`, session['sessions_id'].hall['title']);
+          article.setAttribute(`data-track-${i}`, session['sessions_id'].track['title']);
+          article.setAttribute(`data-date-${i}`, session['sessions_id'].day['day']);
+        });
+      }
+      // В случае, если в карточке нет данных о мероприятиях (пустой массив 'sessions_speaker')
+      else {
+        article.setAttribute('data-hall', "empty");
+        article.setAttribute('data-track', "empty");
+        article.setAttribute('data-date', "empty");
+      }
 
 
-        const imgSrc = `https://forumnewmedia-api.com/assets/${dataEvent["photo"]}?height=70&format=webp&quality=50 alt="userpic"`;
+      const imgSrc = `https://forumnewmedia-api.com/assets/${dataEvent["photo"]}?height=70&format=webp&quality=50 alt="userpic"`;
 
-        article.innerHTML = `
+      article.innerHTML = `
         <div class="events-card__header">
           <div class="events-card__author">
             <span class="events-card__author-name">${dataEvent["first_name"]} ${dataEvent["last_name"]}</span>
@@ -133,19 +133,26 @@ async function handlerEvents() {
           <p>${dataEvent["about"]}</p>
         </div>`;
 
-        blockCards.appendChild(article);
+      blockCards.appendChild(article);
 
 
-        // Добавление дефолтной картинки
-        const cardImg = article.querySelector("img");
-        cardImg.addEventListener("error", () => {
-          const defaultImg = "https://forumnewmedia-api.com/assets/944cb306-eb44-48b9-927e-b7a502be7fa4";
-          cardImg.src = defaultImg;
-        });
+      // Добавление дефолтной картинки
+      const cardImg = article.querySelector("img");
+      cardImg.addEventListener("error", () => {
+        const defaultImg = "https://forumnewmedia-api.com/assets/944cb306-eb44-48b9-927e-b7a502be7fa4";
+        cardImg.src = defaultImg;
+      });
 
     });
   }
 // ---------END Render Cards ---------
+
+
+  const resetFilterBtn = document.querySelector("#filter-reset");
+
+
+
+
 
 
 
@@ -260,7 +267,6 @@ async function handlerEvents() {
 
 // --------- END Filters ---------
 };
-
 
 
 
