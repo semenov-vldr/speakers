@@ -10,7 +10,7 @@ function handlerEvents() {
 }
 function _handlerEvents() {
   _handlerEvents = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-    var events, today, formattedDate, formattedDate2, settingDatesDesktop, settingCurrentDate, settingDatesMobile, API_URL, API_URL_CURRENT, getDataEvents, _getDataEvents, dataEvents, blockCards, mapFields, preprocessData, LANG, renderCardsEvents, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
+    var events, today, formattedDate, formattedDate2, API_URL, API_URL_CURRENT, getDataEvents, _getDataEvents, dataEvents, blockCards, mapFields, preprocessData, LANG, renderCardsEvents, resetFilterBtn, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
@@ -134,7 +134,7 @@ function _handlerEvents() {
                 dataEvent['sessions_speaker'].forEach(function (session, i) {
                   article.setAttribute("data-hall-".concat(i), session['sessions_id'].hall['title']);
                   article.setAttribute("data-track-".concat(i), session['sessions_id'].track['title']);
-                  article.setAttribute("data-date-".concat(i), session['sessions_id'].day['date_typed']);
+                  article.setAttribute("data-date-".concat(i), session['sessions_id'].day['day']);
                 });
               }
               // В случае, если в карточке нет данных о мероприятиях (пустой массив 'sessions_speaker')
@@ -206,7 +206,7 @@ function _handlerEvents() {
                 while (1) switch (_context.prev = _context.next) {
                   case 0:
                     _context.next = 2;
-                    return fetch(API_URL_CURRENT).then(function (response) {
+                    return fetch(API_URL).then(function (response) {
                       return response.json();
                     }).then(function (events) {
                       return events.data;
@@ -236,26 +236,25 @@ function _handlerEvents() {
           // check current Date
           today = new Date();
           formattedDate = today.toISOString().slice(0, 10);
-          formattedDate2 = '2024-10-13';
-          settingDatesDesktop = events.querySelectorAll('#date .events-dates__list-desktop .events-dates__item input[type="radio"]');
-          settingDatesDesktop.forEach(function (settingDate) {
-            if (settingDate.value === formattedDate) settingDate.checked = true;
-          });
-          settingCurrentDate = events.querySelector('#date .events-dates__list-mobile .custom-select .select-button span');
-          settingDatesMobile = events.querySelectorAll('#date .events-dates__list-mobile .custom-select input[type="radio"]');
-          settingDatesMobile.forEach(function (settingDate) {
-            if (settingDate.value === formattedDate) {
-              settingCurrentDate.textContent = formattedDate;
-              settingDate.checked = true;
-            }
-          });
-
+          formattedDate2 = '2024-10-13'; // const settingDatesDesktop = events.querySelectorAll('#date .events-dates__list-desktop .events-dates__item input[type="radio"]');
+          // settingDatesDesktop.forEach(settingDate => {
+          //   if (settingDate.value === formattedDate) settingDate.checked = true;
+          // });
+          //
+          // const settingCurrentDate = events.querySelector('#date .events-dates__list-mobile .custom-select .select-button span');
+          // const settingDatesMobile = events.querySelectorAll('#date .events-dates__list-mobile .custom-select input[type="radio"]');
+          // settingDatesMobile.forEach(settingDate => {
+          //   if (settingDate.value === formattedDate) {
+          //     settingCurrentDate.textContent = formattedDate;
+          //     settingDate.checked = true;
+          //   }
+          // });
           // --- FETCH DATA.JSON ---
           API_URL = "./assets/files/data_new.json";
           API_URL_CURRENT = 'https://forumnewmedia-api.com/items/speakers?fields%5B%5D=id,first_name_ru,last_name_ru,first_name_en,last_name_en,about_ru,about_en,country.id,country.name_ru,country.name_en,display_order,photo,sessions_speaker.sessions_id.track.id,sessions_speaker.sessions_id.track.title_en,sessions_speaker.sessions_id.track.title_ru,sessions_speaker.sessions_id.hall.id,sessions_speaker.sessions_id.hall.title_en,sessions_speaker.sessions_id.hall.title_ru,sessions_speaker.sessions_id.start,sessions_speaker.sessions_id.finish,sessions_speaker.sessions_id.day.id,sessions_speaker.sessions_id.day.day_ru,sessions_speaker.sessions_id.day.day_en,sessions_speaker.sessions_id.day.date_typed';
-          _context2.next = 22;
+          _context2.next = 17;
           return getDataEvents();
-        case 22:
+        case 17:
           dataEvents = _context2.sent;
           blockCards = document.querySelector(".events__cards"); // --------- Выбор языка RU/EN ---------
           LANG = "RU";
@@ -265,7 +264,7 @@ function _handlerEvents() {
 
           renderCardsEvents(dataEvents);
           // ---------END Render Cards ---------
-          // --------- Filters ---------
+          resetFilterBtn = document.querySelector("#filter-reset"); // --------- Filters ---------
           eventsSettings = document.querySelector("#settings");
           filterEvents = document.querySelector("#filter");
           filterSelectCountry = filterEvents.querySelector(".events-filter__country");
@@ -282,7 +281,7 @@ function _handlerEvents() {
           // Dates
 
           // --------- END Filters ---------
-        case 37:
+        case 33:
         case "end":
           return _context2.stop();
       }
