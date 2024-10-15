@@ -149,7 +149,20 @@ async function handlerEvents() {
 
 
   const resetFilterBtn = document.querySelector("#filter-reset");
+  const selectDateDefault = document.querySelector(".events-dates__item--default input");
 
+  function resetFilter() {
+    selectDateDefault.click();
+    const customSelectList = document.querySelectorAll('.custom-select');
+    customSelectList.forEach(customSelect => {
+      const defaultOption = customSelect.querySelector('.select-dropdown li:first-child');
+      const selectBtn = customSelect.querySelector(".select-button");
+      selectBtn.querySelector("span").textContent = defaultOption.textContent;
+      customSelect.classList.remove("active");
+      eventsCards.forEach(card => card.classList.remove("js-hidden"));
+    });
+  }
+  resetFilterBtn.addEventListener('click', resetFilter);
 
 
 
