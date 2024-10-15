@@ -10,7 +10,7 @@ function handlerEvents() {
 }
 function _handlerEvents() {
   _handlerEvents = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-    var events, today, formattedDate, formattedDate2, API_URL, API_URL_CURRENT, getDataEvents, _getDataEvents, dataEvents, blockCards, mapFields, preprocessData, LANG, renderCardsEvents, resetFilterBtn, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
+    var events, today, formattedDate, formattedDate2, API_URL, API_URL_CURRENT, getDataEvents, _getDataEvents, dataEvents, blockCards, mapFields, preprocessData, LANG, renderCardsEvents, resetFilterBtn, selectDateDefault, resetFilter, eventsSettings, filterEvents, filterSelectCountry, filterSelectTrack, filterSelectHall, eventsCards, fillingDataFilter, handlerEventSettings;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
@@ -117,6 +117,19 @@ function _handlerEvents() {
             var filterHallsDropdown = filterSelectHall.querySelector(".select-dropdown");
             hallList.forEach(function (hall) {
               return addItemsDropdown(hall, 'hall', filterHallsDropdown);
+            });
+          };
+          resetFilter = function _resetFilter() {
+            selectDateDefault.click();
+            var customSelectList = document.querySelectorAll('.custom-select');
+            customSelectList.forEach(function (customSelect) {
+              var defaultOption = customSelect.querySelector('.select-dropdown li:first-child');
+              var selectBtn = customSelect.querySelector(".select-button");
+              selectBtn.querySelector("span").textContent = defaultOption.textContent;
+              customSelect.classList.remove("active");
+              eventsCards.forEach(function (card) {
+                return card.classList.remove("js-hidden");
+              });
             });
           };
           renderCardsEvents = function _renderCardsEvents(dataEvents) {
@@ -228,11 +241,11 @@ function _handlerEvents() {
           };
           events = document.querySelector("#events");
           if (events) {
-            _context2.next = 10;
+            _context2.next = 11;
             break;
           }
           return _context2.abrupt("return");
-        case 10:
+        case 11:
           // check current Date
           today = new Date();
           formattedDate = today.toISOString().slice(0, 10);
@@ -252,9 +265,9 @@ function _handlerEvents() {
           // --- FETCH DATA.JSON ---
           API_URL = "./assets/files/data_new.json";
           API_URL_CURRENT = 'https://forumnewmedia-api.com/items/speakers?fields%5B%5D=id,first_name_ru,last_name_ru,first_name_en,last_name_en,about_ru,about_en,country.id,country.name_ru,country.name_en,display_order,photo,sessions_speaker.sessions_id.track.id,sessions_speaker.sessions_id.track.title_en,sessions_speaker.sessions_id.track.title_ru,sessions_speaker.sessions_id.hall.id,sessions_speaker.sessions_id.hall.title_en,sessions_speaker.sessions_id.hall.title_ru,sessions_speaker.sessions_id.start,sessions_speaker.sessions_id.finish,sessions_speaker.sessions_id.day.id,sessions_speaker.sessions_id.day.day_ru,sessions_speaker.sessions_id.day.day_en,sessions_speaker.sessions_id.day.date_typed';
-          _context2.next = 17;
+          _context2.next = 18;
           return getDataEvents();
-        case 17:
+        case 18:
           dataEvents = _context2.sent;
           blockCards = document.querySelector(".events__cards"); // --------- Выбор языка RU/EN ---------
           LANG = "RU";
@@ -264,7 +277,11 @@ function _handlerEvents() {
 
           renderCardsEvents(dataEvents);
           // ---------END Render Cards ---------
-          resetFilterBtn = document.querySelector("#filter-reset"); // --------- Filters ---------
+          resetFilterBtn = document.querySelector("#filter-reset");
+          selectDateDefault = document.querySelector(".events-dates__item--default input");
+          resetFilterBtn.addEventListener('click', resetFilter);
+
+          // --------- Filters ---------
           eventsSettings = document.querySelector("#settings");
           filterEvents = document.querySelector("#filter");
           filterSelectCountry = filterEvents.querySelector(".events-filter__country");
@@ -281,7 +298,7 @@ function _handlerEvents() {
           // Dates
 
           // --------- END Filters ---------
-        case 33:
+        case 36:
         case "end":
           return _context2.stop();
       }
